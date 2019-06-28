@@ -63,10 +63,10 @@ class Form {
 
         $this->check_and_fill();
 
-        if (empty($errors)){
+        if (empty($this->errors)){
             $contents = $this->lastname . " | " . $this->firstname . " | " . $this->email . " | " . $this->phone . " | " . $this->theme . " | " . $this->pay . " | " . $this->check . " | ". $this->date . " | ". $this->ipaddr ." | ". $this->status . "\n";
             file_put_contents('form_str/data.txt', $contents, FILE_APPEND);  
-            //header('Location: form_str\success.php');
+            header('Location: form_str\success.php');
             exit;    
         }   
         
