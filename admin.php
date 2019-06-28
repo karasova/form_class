@@ -5,7 +5,7 @@
 </head>
 <body>
     <?php
-        //error_reporting(0);
+        error_reporting(0);
         
         include "delete.php";
     ?>
@@ -20,14 +20,10 @@
             </thead>
             <tbody>
                 <?php 
-                    $i = 1;
-                    $table = ''; 
-                    $files = file_get_contents("data.txt");
-                    $files = explode("\n", trim($files));
-                    foreach ($files as $content){
-                        $content = explode(" | ", trim($content));
-                        if ($content[9] === 'active'){
-                            $table .= "<tr><td>" . $i . "</td><td>". $content[7] . "</td><td> <input type = 'checkbox' name = 'deletes[]' value='" . $content[7]  . "'></td></tr>";
+                $i = 1;
+                    foreach ($files as $key){
+                        if ($key->status === 'active'){
+                            $table .= "<tr><td>" . $i . "</td><td>". $key->date . "</td><td> <input type = 'checkbox' name = 'deletes[]' value='" . $key->date  . "'></td></tr>";
                             $i++;
                         }
                     }            

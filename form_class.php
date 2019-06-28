@@ -9,7 +9,7 @@ class Form {
     private $check;
     public $date;
     private $ipaddr;
-    private $status;
+    public $status;
 
     public $errors = array();
 

@@ -15,18 +15,23 @@
     }
 
     unset($files[$i]);
-        
+
+    $i=0;        
     foreach ($deletefiles as $checkbox) {
 		foreach ($files as $key) {
 			if ($key->date == $checkbox) {
-				$file[$i]->status = "deleted";
+				$files[$i]->status = "deleted";
 				$i = 0;
 				break;
 			}
             $i++;
-            $key-> save_to_file();
 		}
-	}             
+    }    
+    
+    file_put_contents("data.txt", '');
+	foreach ($files as $key) {
+		$key->save_to_file();
+	}
     
 
 
